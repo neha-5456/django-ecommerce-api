@@ -1,0 +1,269 @@
+{
+	"info": {
+		"_postman_id": "b9ccbdfd-b9a1-43c6-9c0d-bab5028f4db2",
+		"name": "Drk_ecom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"nehajtpss\",\n    \"email\": \"nehajtpss@gmail.com\",\n    \"password\": \"nehajtpss\",\n    \"confirm_password\": \"nehajtpss\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}register"
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "default",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "default"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"nehajtpss\",\n    \"password\": \"nehajtpss\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}token/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "ProductList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}product"
+					},
+					"response": []
+				},
+				{
+					"name": "AllProductVariationList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}variation"
+					},
+					"response": []
+				},
+				{
+					"name": "VariationByProductId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{BaseUrl}}variation/?product_id=1",
+							"host": [
+								"{{BaseUrl}}variation"
+							],
+							"path": [
+								""
+							],
+							"query": [
+								{
+									"key": "product_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CategoryList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}category"
+					},
+					"response": []
+				},
+				{
+					"name": "GetProductById",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxMjM1Njc1LCJpYXQiOjE3NDEyMzUzNzUsImp0aSI6ImM2MzYwZmU3ZDJkNjQ1YjhiOTJhZWY2NmNlYTM4MWU5IiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJuZWhhanRwc3MiLCJlbWFpbCI6Im5laGFqdHBzc0BnbWFpbC5jb20ifQ.eBXkGlM8_O07kbuV--tdQm-zlHz9KH2732SvYmdNCfg"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"category\": \"Men\",\n    \"name\": \"DEELMO Men's Stylish Solid Satin Casual Shirt\",\n    \"desc\": \"<ul>\\r\\n\\t<li>Fabric : Made With Satin Silk Fabric | Material: Poly Satin With soft finish and rich look, guaranteed shrinkage post washing.</li>\\r\\n\\t<li>These DEELMO Shirts are reliability and durability to offer you men&#39;s lifestyle essentials that never go out of fashion</li>\\r\\n\\t<li>Style : Western | Closure Type : Button | Solid Formal Shirt for Men with button that will complement your look no matter what the occasion is.</li>\\r\\n\\t<li>Neck Style : Collared Neck |</li>\\r\\n\\t<li>Wash Care : Machine Wash | Suitable for Formal ,</li>\\r\\n\\t<li>Business Work, Date, Party, Perfect gift for friends.</li>\\r\\n</ul>\",\n    \"image\": \"http://127.0.0.1:8000/media/product/images/DEELMO%20Men's%20Stylish%20Solid%20Satin%20Casual%20Shirt/61clGHeEsL._SY741_.jpg\",\n    \"price\": \"499.00\",\n    \"quantity\": 10,\n    \"created_at\": \"2025-03-05T05:16:29.061283Z\",\n    \"updated_at\": \"2025-03-05T06:11:56.505084Z\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/v1/product/2/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cart",
+			"item": [
+				{
+					"name": "cartlist",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxMjM4NjU0LCJpYXQiOjE3NDEyMzgzNTQsImp0aSI6IjA5OTdmMTA4MDZlNzRmZWNhZmNhYmZiZGIyYWM2YjA3IiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJuZWhhanRwc3MiLCJlbWFpbCI6Im5laGFqdHBzc0BnbWFpbC5jb20ifQ._ZmZ-9N5au4OZA_nQGAV9JfK4YZar6wdXPmlwWrnRoE"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}cart"
+					},
+					"response": []
+				},
+				{
+					"name": "cartAdd",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxMjQ5ODc0LCJpYXQiOjE3NDEyNDk1NzQsImp0aSI6IjAzNGRlYjUyNDkxMDQzNjZhOGUyNDJkZTAzNTYwMTU0IiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJuZWhhanRwc3MiLCJlbWFpbCI6Im5laGFqdHBzc0BnbWFpbC5jb20ifQ.lFaYrMkc___dqkUZbiGPr-P6Xdfjs0Sry-6V6BobY_Y"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"product_variation\": 3,\n    \"quantity\": 1,\n    \"product_id\": 1\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}cart/add/"
+					},
+					"response": []
+				},
+				{
+					"name": "remove",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxMjQxMzEwLCJpYXQiOjE3NDEyNDEwMTAsImp0aSI6ImJlZTlkN2Q1NDhhZTQwMzBiYzk3YjI0ODcyNjQ1Njc4IiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJuZWhhanRwc3MiLCJlbWFpbCI6Im5laGFqdHBzc0BnbWFpbC5jb20ifQ.Cwk2mzhyS8ZShJ7D6QqdBlO_-OC7yjVztZUNQylnK-A"
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"variation_id\": 3\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}cart/remove/3"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Order",
+			"item": [
+				{
+					"name": "createOrder",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxNTk1MDUxLCJpYXQiOjE3NDE1OTQ3NTEsImp0aSI6Ijc0OGY0OGVmMzE1OTRmMzM4NDg5NjIzM2MwN2Q4NTU5IiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJuZWhhanRwc3MiLCJlbWFpbCI6Im5laGFqdHBzc0BnbWFpbC5jb20ifQ.bZNMPqhGx0TP9IWdFKDhXl1uEWMfzJvEg9aKYo18m5g"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxNTg5OTYxLCJpYXQiOjE3NDE1ODk2NjEsImp0aSI6ImI5OTllZWFhNWRhNDQ3MTdhNDQwZjQ5NzkzY2MzMTIyIiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJuZWhhanRwc3MiLCJlbWFpbCI6Im5laGFqdHBzc0BnbWFpbC5jb20ifQ.p1GwlNjZcS2Qjj0JyMeLJfA3iBu59JPUtFmVLEVlV0M\",\n    \"username\": \"nehajtpss",
+								"type": "default",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{  \n  \"shipping_address\":8,\n  \"billing_address\":8,\n    \"order_items\": [{\n           \"product\": 1,\n            \"quantity\": 1\n          \n}]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "{{BaseUrl}}orders/"
+					},
+					"response": []
+				},
+				{
+					"name": "getOrdeItems",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzQxNTk1MDUxLCJpYXQiOjE3NDE1OTQ3NTEsImp0aSI6Ijc0OGY0OGVmMzE1OTRmMzM4NDg5NjIzM2MwN2Q4NTU5IiwidXNlcl9pZCI6OCwidXNlcm5hbWUiOiJuZWhhanRwc3MiLCJlbWFpbCI6Im5laGFqdHBzc0BnbWFpbC5jb20ifQ.bZNMPqhGx0TP9IWdFKDhXl1uEWMfzJvEg9aKYo18m5g"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "{{BaseUrl}}orders/4/items"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
